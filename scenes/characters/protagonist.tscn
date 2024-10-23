@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq2gnbfg8fl0n"]
+[gd_scene load_steps=4 format=3 uid="uid://dfb77yvtcahlg"]
 
-[ext_resource type="Texture2D" uid="uid://cynlinsmbf7ok" path="res://assets/sprites/characters/protagonist.png" id="1_12s1w"]
-[ext_resource type="Script" path="res://scenes/characters/protagonist.gd" id="2_7qilf"]
+[ext_resource type="Texture2D" uid="uid://cynlinsmbf7ok" path="res://assets/sprites/characters/protagonist.png" id="1_dlfml"]
+[ext_resource type="Script" path="res://scenes/characters/character_body_2d.gd" id="2_i4a1v"]
 
-[node name="Sprite2D" type="Sprite2D"]
-position = Vector2(225, 139)
-texture = ExtResource("1_12s1w")
-script = ExtResource("2_7qilf")
+[sub_resource type="CircleShape2D" id="CircleShape2D_3t2n6"]
+radius = 4.12311
+
+[node name="Protagonist" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 7
+script = ExtResource("2_i4a1v")
+
+[node name="protagonist" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(116, 112)
+texture = ExtResource("1_dlfml")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(115, 117)
+shape = SubResource("CircleShape2D_3t2n6")
